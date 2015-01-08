@@ -141,7 +141,7 @@ div.code-lines span {
 
 #tabs-html, #tabs-css {
 	padding: 25px 0px 0px 0px;
-	height: 542px;
+	/*height: 542px;*/
 	overflow: auto;
 }
 
@@ -190,7 +190,6 @@ div.code-lines span {
 
 #div-preview, #div-about, #div-download {
 	border: 2px solid #777777;
-    display: none;
     height: 75%;
     left: 318px;
     padding: 1px;
@@ -269,9 +268,9 @@ div.code-lines span {
 	top: -9px;
 }
 
-#div-preview.docked div.title-bar p, #div-preview.docked div.title-bar img.close {
+/*#div-preview.docked div.title-bar p, #div-preview.docked div.title-bar img.close {
 	display: none;
-}
+}*/
 
 #div-preview.docked iframe {
 	top: -20px;
@@ -296,7 +295,7 @@ div.code-lines span {
 
 #html-window {
 	position: fixed;
-	width: 100%;
+	width: 50%;
 	height: 100%;
 	resize: none;
 	overflow-y: scroll !important;
@@ -310,7 +309,7 @@ div.code-lines span {
 	overflow-y: scroll !important;
 }
 
-.tasks-panel {
+.testarea {
 	background-color: #ffffff;
     border: 3px solid #009999;
     display: block;
@@ -337,11 +336,21 @@ div.code-lines span {
     color: #009999;
 }
 
-#share {
+#d_clip_button {
+    color: #009999;
+    left: 49%;
+    position: absolute;
+    top: 15%;
+    z-index: 1;
+}
+
+#clear-test {
+
     color: #009999;
     left: 95%;
     position: fixed;
-    top: 24%;
+    top: 15%;
+
 }
 
 .makeRed {
@@ -373,4 +382,13 @@ div.code-lines span {
     left: 175px;
     position: absolute;
     top: 43px;
+}
+
+#d_debug {
+    position: absolute;
+    top: -21px;
+}
+
+#content {
+    background-color: white;
 }

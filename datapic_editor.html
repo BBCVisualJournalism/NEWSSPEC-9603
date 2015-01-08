@@ -8,403 +8,349 @@
 
 		<title>Make it Digital - DataPic Editor</title>
 
-		<script type="text/javascript" src="./scripts/jquery-1.7.2.min.js"></script>
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script>
-  		<script src="http://malsup.github.com/jquery.form.js"></script>
-      <script type="text/javascript" src="js/jquery.js"></script>
-		<script type="text/javascript" src="./scripts/jquery-ui-1.8.20.custom.min.js"></script>
-		<script type="text/javascript" src="./scripts/main.js"></script>
-    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
-    <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
-
-		<link rel="stylesheet" type="text/css" href="./css/main.css" />
-		<link rel="stylesheet" type="text/css" href="./css/jquery-ui-1.8.20.custom.css" />
-
+    <link rel="stylesheet" type="text/css" href="./css/main.css" />
+    <link rel="stylesheet" type="text/css" href="./css/jquery-ui-1.8.20.custom.css" />
+		<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
 
 	</head>
 	<body>
+    <header>
+            <img id="logo-img" src="./images/logo.png" alt="BBC logo"/>
+    </header>
 
-		<header>
-			<img id="logo-img" src="./images/logo.png" alt="BBC logo"/>
-			<!-- <nav>
-				<ul id="ul-main-menu">
-					<li><a id="a-new-project" href="#"><span>New</span></a></li>
-					<li><a id="a-open-project" href="#"><span>Open</span></a></li>
-					<li><a id="a-save-project" href="#"><span>Save</span></a></li>
-					<li><a id="a-download-project" href="#"><span>Download</span></a></li>
-					<li><a id="a-about" href="#"><span>About</span></a></li>
-				</ul>
-			</nav> -->
-		</header>
+    <div id="content">
+            <div id="project-name"><p>Make it Digital - Datapic Editor</p></div>
 
-		<div id="content">
-			<div id="project-name"><p>Make it Digital - Datapic Editor</p></div>
-
-			<div id="toolbar">
-				<ul id="ul-toolbar">
-					<!-- <li><a id="a-preview" href="#"><span>Preview</span></a></li> -->
-					<li><a id="a-reset" href="#"><span>Reset</span></a></li>
-					<!-- <li><a id="a-bg" href="#"><span>Background</span></a></li> -->
-				</ul>
-			</div>
-
-			<!-- HTML, CSS, Javascript and Run Tabs -->
-			<div id="tabs">
-
-		<!-- <div class="container grid">
-			<form>
-				<h2>HTML</h2>
-			 <div id="tabs-html">
-					<div class="code-lines html-code"><span>1</span></div>
-					<textarea id="html-window" class="white" rows="38"><body></body></textarea>
-				</div>
-
-				<h2>CSS</h2>
-				<div id="tabs-css">
-					<div class="code-lines css-code"><span>1</span></div>
-					<textarea id="css-window" class="white" rows="38">body {}</textarea>
-				</div>
-			</form>
-		</div> -->
-
-	<!-- 	<a id="a-tabs-run" href="#tabs-run">RUN</a> -->
-
-				<!-- <!-- Tabs -->
-				<ul>
-					<li><a href="#tabs-html">CODE</a></li>
-					<!-- <li><a href="#tabs-css">CSS</a></li> -->
-					<!-- <li><a id="a-tabs-js" href="#tabs-js">JSCRIPT</a></li>
-					<li><a id="a-tabs-run" href="#tabs-run">RUN</a></li> -->
-				</ul>
-
-
-				<div id="tabs-html">
-					<div class="code-lines html-code"><span>1</span></div>
-					<textarea id="html-window" class="white" rows="38" onblur="CopyToClipboard(this)" ><body><style>
-.newsspec_infographic_template p,
-.newsspec_infographic_template h1,
-.newsspec_infographic_template h2,
-.newsspec_infographic_template h3 {
-  padding: 0;
-  margin: 0;
-  font-size: 1em;
-  line-height: normal;
-  font-size: 100%;
-  color: #404040; }
-
-.newsspec_infographic_template p {
-  clear: none; }
-
-.newsspec_infographic_template ul,
-.newsspec_infographic_template ul li {
-  background-image: none;
-  list-style-type: none;
-  list-style: none;
-  background: none;
-  padding: 0;
-  margin: 0;
-  font-size: 1em;
-  line-height: normal;
-  font-size: 100%; }
-
-.newsspec_infographic_template * {
-  line-height: normal;
-  font-size: normal; }
-
-.newsspec_infographic_template:after {
-  content: "";
-  display: table;
-  clear: both; }
-
-.storybody-halfwide-include {
-  width: 624px; }
-
-.ns_datapic_stat {
-  max-width: 624px;
-  max-width: 585px\9;
-  /* Margins separating task from rest of article */
-  margin: 1em 0;
-  color: #404040;
-  font-size: 16px; }
-
-.idt__news {
-  font-family: Arial; }
-
-.ns_datapic_stat .ns_outer_wrapper_img_src {
-  display: block;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  color: white;
-  padding: 3px;
-  font-size: 0.75em;
-  font-weight: bold; }
-
-.ns_datapic_stat .ns_separator {
-  border-top: 1px solid #CCCCCC;
-  padding-top: 8px; }
-
-.ns_datapic_stat .ns_outer_wrapper {
-  background-size: cover;
-  background-repeat: no-repeat;
-  position: relative; }
-
-.ns_datapic_stat .ns_outer_wrapper__align-bottom {
-  background-position: bottom right; }
-
-.ns_datapic_stat .ns_outer_wrapper__align-top {
-  background-position: top right; }
-
-.ns_datapic_stat .ns_inner_wrapper {
-  /* RGB value - IE fix */
-  background: white;
-  /* RGB value followed by opacity - all other browsers */
-  background: rgba(255, 255, 255, 0.8);
-  width: 100%;
-  padding: 0 1.875em 0 1.4375em;
-  display: block; }
-
-.ns_datapic_stat .ns_inner_wrapper .ns_title {
-  font-size: 1.125em;
-  font-weight: bold;
-  padding: 8px 0 0 0; }
-
-.ns_datapic_stat .ns_inner_wrapper .ns_subtitle {
-  font-size: 0.9375em;
-  padding: 4px 0 8px 0; }
-
-.ns_datapic_stat .ns_inner_wrapper .ns_intro {
-  padding: 10px 0; }
-
-.ns_datapic_stat .ns_inner_wrapper .ns_header {
-  margin-bottom: 12px; }
-
-.ns_datapic_stat .ns_outer_wrapper .ns_inner_wrapper .ns_footer {
-  font-size: 0.875em;
-  margin-top: 8px;
-  padding-bottom: 16px; }
-
-.ns_datapic_stat .ns_inner_wrapper .ns_header .ns_super_impact__fig {
-  font-size: 3em;
-  font-weight: bold;
-  margin-top: 0em;
-  padding-bottom: 4px; }
-
-.ns_datapic_stat .ns_inner_wrapper .ns_header .ns_header_left {
-  float: left;
-  margin: 0 30px 0 0; }
-
-.ns_datapic_stat .ns_inner_wrapper .ns_header .ns_header_left .ns_super_impact__fig {
-  color: #007f7f; }
-
-.ns_datapic_stat .ns_inner_wrapper .ns_header .ns_header_right .ns_super_impact__fig {
-  color: #007f7f; }
-
-.ns_datapic_stat .ns_inner_wrapper .ns_header:after {
-  clear: both;
-  content: "";
-  display: table; }
-
-.ns_datapic_stat .ns_inner_wrapper ul li {
-  list-style: none;
-  background: none;
-  margin: 0 0 .875em 0; }
-
-.ns_datapic_stat .ns_inner_wrapper ul li .ns_impact__fig {
-  color: #ff7900;
-  font-size: 1.625em;
-  font-weight: bold;
-  margin: 5px 0; }
-
-.ns_datapic_stat .ns_inner_wrapper ul li .ns_impact__fig strong {
-  color: #007f7f; }
-
-.ns_datapic_stat .ns_inner_wrapper .ns_paragraph {
-  margin-top: 24px; }
-
-.ns_datapic_stat .ns_inner_wrapper ul .ns_impact p span:nth-child(2) {
-  padding-left: 0.25em; }
-
-@media only screen and (min-width: 1px) {
-  .storybody-halfwide-include {
-    width: 100%; }
-
-  .ns_datapic_stat .ns_outer_wrapper_img_src {
-    display: none; }
-
-  .ns_datapic_stat .ns_outer_wrapper .ns_inner_wrapper .ns_header_right {
-    float: left; }
-
-  .ns_datapic_stat .ns_inner_wrapper .ns_header .ns_header_left {
-    float: left; }
-
-  .ns_datapic_stat .ns_outer_wrapper .ns_inner_wrapper .ns_footer {
-    font-size: 1em;
-    margin-top: 0;
-    padding-bottom: 0; } }
-.ns_datapic_stat .ns_outer_wrapper {
-  background-size: cover;
-  background-repeat: no-repeat;
-  position: relative; }
-
-.ns_datapic_stat .ns_outer_wrapper__align-bottom {
-  background-position: bottom right; }
-
-.ns_datapic_stat .ns_outer_wrapper__align-top {
-  background-position: top right; }
-
-.ns_datapic_stat .ns_outer_wrapper .ns_outer_wrapper_img_src {
-  display: block;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  color: white;
-  padding: 3px;
-  font-size: 0.75em;
-  font-weight: bold; }
-
-.ns_datapic_stat .ns_outer_wrapper .ns_inner_wrapper {
-  display: block; }
-
-.ns_datapic_stat .ns_outer_wrapper .ns_inner_wrapper .ns_header_right {
-  float: left; }
-
-.ns_datapic_stat .ns_outer_wrapper .ns_inner_wrapper .ns_footer {
-  font-size: 0.875em;
-  margin-top: 8px;
-  padding-bottom: 8px; }
-
-.media-screen-small .ns_datapic_stat .ns_outer_wrapper {
-  background-image: none !important;
-  background: #ffffff; }
-.media-screen-small .ns_datapic_stat .ns_outer_wrapper_img_src {
-  display: none; }
-.media-screen-small .ns_datapic_stat .ns_outer_wrapper .ns_inner_wrapper {
-  display: inline;
-  max-width: 100% !important; }
-.media-screen-small .ns_datapic_stat .ns_outer_wrapper .ns_inner_wrapper .ns_footer {
-  font-size: 1em;
-  margin-top: 0;
-  padding-bottom: 0; }
-
-/*# sourceMappingURL=ns_data_pic_stat_domestic.css.map */
-
-
-@media only screen and (min-width: 1px) {
-  .ns_datapic_stat--ebola-updates .ns_outer_wrapper {
-    background-image: none;
-  }
-  .ns_datapic_stat--ebola-updates .ns_outer_wrapper .ns_inner_wrapper {
-    max-width: 100%;
-  }
-}
-@media only screen and (min-width: 480px) {
-  .ns_datapic_stat--ebola-updates .ns_outer_wrapper .ns_inner_wrapper {
-    max-width: 50%;
-  }
-  .ns_datapic_stat--ebola-updates .ns_outer_wrapper {
-        background-image: url(http://newsimg.bbc.co.uk/media/images/78672000/gif/_78672242_ebola_suspect_case_getty_62.gif);
-  }
-}
-.ie8 .ns_datapic_stat--ebola-updates .ns_outer_wrapper .ns_inner_wrapper {
-    max-width: 50%;
-  }
-.ie8 .ns_datapic_stat--ebola-updates .ns_outer_wrapper {
-        background-image: url(http://newsimg.bbc.co.uk/media/images/78672000/gif/_78672242_ebola_suspect_case_getty_62.gif);
-  }
-</style>
-	<div class="idt__news ns_datapic_stat ns_datapic_stat--ebola-updates newsspec_infographic_template">
-
-        <div class="ns_outer_wrapper ns_outer_wrapper__align-bottom">
-            <div class="ns_inner_wrapper">
-
-                <h2 class="ns_title" id="ns_title" onkeyup="showAnnotation()">Ebola deaths in West Africa</h2>
-
-                 <h3 class="ns_subtitle" id="ns_title"> Up to 23 November</h3>
-
-                <div class="ns_header">
-                    <div class="ns_super_impact  ns_header_left">
-                        <p class="ns_super_impact__fig">5,689</p>
-                        <p>Deaths - probable, confirmed and suspected</p>
-                  </div>
-                    <div class="ns_super_impact  ns_header_right">
-                        <p class="ns_super_impact__fig_other"></p>
-                        <p>(Includes one death in US and six in Mali)</p>
-                  </div>
-                </div>
-
-                <ul class="ns_impact-figures ns_separator">
-                    <li class="ns_impact ">
-                        <p><span class="ns_impact__fig">3,016</span> Liberia </p>
-                    </li>
-                    <li class="ns_impact ">
-                        <p><span class="ns_impact__fig">1,398</span> Sierra Leone </p>
-                    </li>
-                    <li class="ns_impact ">
-                        <p><span class="ns_impact__fig">1,260</span> Guinea </p>
-                    </li>
-                    <li class="ns_impact ">
-                        <p><span class="ns_impact__fig">8</span> Nigeria </p>
-                    </li>
+            <!-- *** RESET BUTTON ** -->
+            <!-- <div id="toolbar">
+                <ul id="ul-toolbar">
+                    <li><a id="a-reset" href="#"><span>Reset</span></a></li>
                 </ul>
+            </div> -->
 
-                <div class="ns_footer ns_small-text ">Source: WHO</div>
+            <!-- TABS - HTML AND CSS IN ONE TAB -->
+             <!--<div id="tabs-html">
+                <ul>
+                    <li><a href="#tabs-html">CODE</a></li>
+                </ul>
+            </div>-->
 
+
+    <button id="d_clip_button" data-clipboard-text="Copy Me!" title="Click to copy.">Test</button>
+
+    <!-- DIV and Text area START -->
+        <div class="code-lines html-code"><span>1</span></div>
+          <textarea id="html-window" class="white" rows="38" >
+            <body>
+            <style>
+            .newsspec_infographic_template p,
+            .newsspec_infographic_template h1,
+            .newsspec_infographic_template h2,
+            .newsspec_infographic_template h3 {
+              padding: 0;
+              margin: 0;
+              font-size: 1em;
+              line-height: normal;
+              font-size: 100%;
+              color: #404040; }
+
+            .newsspec_infographic_template p {
+              clear: none; }
+
+            .newsspec_infographic_template ul,
+            .newsspec_infographic_template ul li {
+              background-image: none;
+              list-style-type: none;
+              list-style: none;
+              background: none;
+              padding: 0;
+              margin: 0;
+              font-size: 1em;
+              line-height: normal;
+              font-size: 100%; }
+
+            .newsspec_infographic_template * {
+              line-height: normal;
+              font-size: normal; }
+
+            .newsspec_infographic_template:after {
+              content: "";
+              display: table;
+              clear: both; }
+
+            .storybody-halfwide-include {
+              width: 624px; }
+
+            .ns_datapic_stat {
+              max-width: 624px;
+              max-width: 585px\9;
+              /* Margins separating task from rest of article */
+              margin: 1em 0;
+              color: #404040;
+              font-size: 16px; }
+
+            .idt__news {
+              font-family: Arial; }
+
+            .ns_datapic_stat .ns_outer_wrapper_img_src {
+              display: block;
+              position: absolute;
+              bottom: 0;
+              right: 0;
+              color: white;
+              padding: 3px;
+              font-size: 0.75em;
+              font-weight: bold; }
+
+            .ns_datapic_stat .ns_separator {
+              border-top: 1px solid #CCCCCC;
+              padding-top: 8px; }
+
+            .ns_datapic_stat .ns_outer_wrapper {
+              background-size: cover;
+              background-repeat: no-repeat;
+              position: relative; }
+
+            .ns_datapic_stat .ns_outer_wrapper__align-bottom {
+              background-position: bottom right; }
+
+            .ns_datapic_stat .ns_outer_wrapper__align-top {
+              background-position: top right; }
+
+            .ns_datapic_stat .ns_inner_wrapper {
+              /* RGB value - IE fix */
+              background: white;
+              /* RGB value followed by opacity - all other browsers */
+              background: rgba(255, 255, 255, 0.8);
+              width: 100%;
+              padding: 0 1.875em 0 1.4375em;
+              display: block; }
+
+            .ns_datapic_stat .ns_inner_wrapper .ns_title {
+              font-size: 1.125em;
+              font-weight: bold;
+              padding: 8px 0 0 0; }
+
+            .ns_datapic_stat .ns_inner_wrapper .ns_subtitle {
+              font-size: 0.9375em;
+              padding: 4px 0 8px 0; }
+
+            .ns_datapic_stat .ns_inner_wrapper .ns_intro {
+              padding: 10px 0; }
+
+            .ns_datapic_stat .ns_inner_wrapper .ns_header {
+              margin-bottom: 12px; }
+
+            .ns_datapic_stat .ns_outer_wrapper .ns_inner_wrapper .ns_footer {
+              font-size: 0.875em;
+              margin-top: 8px;
+              padding-bottom: 16px; }
+
+            .ns_datapic_stat .ns_inner_wrapper .ns_header .ns_super_impact__fig {
+              font-size: 3em;
+              font-weight: bold;
+              margin-top: 0em;
+              padding-bottom: 4px; }
+
+            .ns_datapic_stat .ns_inner_wrapper .ns_header .ns_header_left {
+              float: left;
+              margin: 0 30px 0 0; }
+
+            .ns_datapic_stat .ns_inner_wrapper .ns_header .ns_header_left .ns_super_impact__fig {
+              color: #007f7f; }
+
+            .ns_datapic_stat .ns_inner_wrapper .ns_header .ns_header_right .ns_super_impact__fig {
+              color: #007f7f; }
+
+            .ns_datapic_stat .ns_inner_wrapper .ns_header:after {
+              clear: both;
+              content: "";
+              display: table; }
+
+            .ns_datapic_stat .ns_inner_wrapper ul li {
+              list-style: none;
+              background: none;
+              margin: 0 0 .875em 0; }
+
+            .ns_datapic_stat .ns_inner_wrapper ul li .ns_impact__fig {
+              color: #ff7900;
+              font-size: 1.625em;
+              font-weight: bold;
+              margin: 5px 0; }
+
+            .ns_datapic_stat .ns_inner_wrapper ul li .ns_impact__fig strong {
+              color: #007f7f; }
+
+            .ns_datapic_stat .ns_inner_wrapper .ns_paragraph {
+              margin-top: 24px; }
+
+            .ns_datapic_stat .ns_inner_wrapper ul .ns_impact p span:nth-child(2) {
+              padding-left: 0.25em; }
+
+            @media only screen and (min-width: 1px) {
+              .storybody-halfwide-include {
+                width: 100%; }
+
+              .ns_datapic_stat .ns_outer_wrapper_img_src {
+                display: none; }
+
+              .ns_datapic_stat .ns_outer_wrapper .ns_inner_wrapper .ns_header_right {
+                float: left; }
+
+              .ns_datapic_stat .ns_inner_wrapper .ns_header .ns_header_left {
+                float: left; }
+
+              .ns_datapic_stat .ns_outer_wrapper .ns_inner_wrapper .ns_footer {
+                font-size: 1em;
+                margin-top: 0;
+                padding-bottom: 0; } }
+            .ns_datapic_stat .ns_outer_wrapper {
+              background-size: cover;
+              background-repeat: no-repeat;
+              position: relative; }
+
+            .ns_datapic_stat .ns_outer_wrapper__align-bottom {
+              background-position: bottom right; }
+
+            .ns_datapic_stat .ns_outer_wrapper__align-top {
+              background-position: top right; }
+
+            .ns_datapic_stat .ns_outer_wrapper .ns_outer_wrapper_img_src {
+              display: block;
+              position: absolute;
+              bottom: 0;
+              right: 0;
+              color: white;
+              padding: 3px;
+              font-size: 0.75em;
+              font-weight: bold; }
+
+            .ns_datapic_stat .ns_outer_wrapper .ns_inner_wrapper {
+              display: block; }
+
+            .ns_datapic_stat .ns_outer_wrapper .ns_inner_wrapper .ns_header_right {
+              float: left; }
+
+            .ns_datapic_stat .ns_outer_wrapper .ns_inner_wrapper .ns_footer {
+              font-size: 0.875em;
+              margin-top: 8px;
+              padding-bottom: 8px; }
+
+            .media-screen-small .ns_datapic_stat .ns_outer_wrapper {
+              background-image: none !important;
+              background: #ffffff; }
+            .media-screen-small .ns_datapic_stat .ns_outer_wrapper_img_src {
+              display: none; }
+            .media-screen-small .ns_datapic_stat .ns_outer_wrapper .ns_inner_wrapper {
+              display: inline;
+              max-width: 100% !important; }
+            .media-screen-small .ns_datapic_stat .ns_outer_wrapper .ns_inner_wrapper .ns_footer {
+              font-size: 1em;
+              margin-top: 0;
+              padding-bottom: 0; }
+
+            /*# sourceMappingURL=ns_data_pic_stat_domestic.css.map */
+
+
+            @media only screen and (min-width: 1px) {
+              .ns_datapic_stat--ebola-updates .ns_outer_wrapper {
+                background-image: none;
+              }
+              .ns_datapic_stat--ebola-updates .ns_outer_wrapper .ns_inner_wrapper {
+                max-width: 100%;
+              }
+            }
+            @media only screen and (min-width: 480px) {
+              .ns_datapic_stat--ebola-updates .ns_outer_wrapper .ns_inner_wrapper {
+                max-width: 50%;
+              }
+              .ns_datapic_stat--ebola-updates .ns_outer_wrapper {
+                    background-image: url(http://newsimg.bbc.co.uk/media/images/78672000/gif/_78672242_ebola_suspect_case_getty_62.gif);
+              }
+            }
+            .ie8 .ns_datapic_stat--ebola-updates .ns_outer_wrapper .ns_inner_wrapper {
+                max-width: 50%;
+              }
+            .ie8 .ns_datapic_stat--ebola-updates .ns_outer_wrapper {
+                    background-image: url(http://newsimg.bbc.co.uk/media/images/78672000/gif/_78672242_ebola_suspect_case_getty_62.gif);
+              }
+          </style>
+          <div class="idt__news ns_datapic_stat ns_datapic_stat--ebola-updates newsspec_infographic_template">
+
+                <div class="ns_outer_wrapper ns_outer_wrapper__align-bottom">
+                    <div class="ns_inner_wrapper">
+
+                        <h2 class="ns_title" id="ns_title" onkeyup="showAnnotation()">Ebola deaths in West Africa</h2>
+
+                         <h3 class="ns_subtitle" id="ns_title"> Up to 23 November</h3>
+
+                        <div class="ns_header">
+                            <div class="ns_super_impact  ns_header_left">
+                                <p class="ns_super_impact__fig">5,689</p>
+                                <p>Deaths - probable, confirmed and suspected</p>
+                          </div>
+                            <div class="ns_super_impact  ns_header_right">
+                                <p class="ns_super_impact__fig_other"></p>
+                                <p>(Includes one death in US and six in Mali)</p>
+                          </div>
+                        </div>
+
+                        <ul class="ns_impact-figures ns_separator">
+                            <li class="ns_impact ">
+                                <p><span class="ns_impact__fig">3,016</span> Liberia </p>
+                            </li>
+                            <li class="ns_impact ">
+                                <p><span class="ns_impact__fig">1,398</span> Sierra Leone </p>
+                            </li>
+                            <li class="ns_impact ">
+                                <p><span class="ns_impact__fig">1,260</span> Guinea </p>
+                            </li>
+                            <li class="ns_impact ">
+                                <p><span class="ns_impact__fig">8</span> Nigeria </p>
+                            </li>
+                        </ul>
+
+                        <div class="ns_footer ns_small-text ">Source: WHO</div>
+
+                    </div>
+                    <div class="ns_outer_wrapper_img_src">Getty</div>
+                </div>
             </div>
-            <div class="ns_outer_wrapper_img_src">Getty</div>
+
+        </body>
+      </textarea>
+
+      <!-- ** Task Container - if needed -->
+      <div id="task-container">
+                <button id="next-task" onclick="changeTask()">Next</button>
+                    <div id="task"></div>
+      </div>
+
+      <!-- ** Preview Window containing IFrame ***-->
+      <div id="div-preview" onload="update()" class="undocked">
+                <div class="title-bar">
+                    <p>Preview</p>
+                </div>
+                <iframe id="iframe-preview"></iframe>
+
+       <!-- Annotationsgraphics -->
+              <img src="./images/h2_heading.png" id="h2_annotation" alt="h2 heading description" style="width:90px;height:50px">
+              <img src="./images/h3_heading.png" id="h3_annotation" alt="h2 heading description"style="width:90px;height:50px">
+              <img src="./images/impact_figure.png" id="impact_figure" alt="impact figure" style="width:90px;height:50px">
         </div>
+
     </div>
 
-</body></textarea>
-				</div>
 
-				<!-- <div id="tabs-css">
-					<div class="code-lines css-code"><span>1</span></div>
-					<textarea id="css-window" class="white" rows="38">body {}</textarea>
-				</div> -->
+    <!-- DIV and Text area END -->
 
-				<<!-- div id="tabs-js">
-					<div class="code-lines js-code"><span>1</span></div>
-					<textarea id="js-window" class="white" rows="38">$(document).ready(function() {});</textarea>
-				</div>
+    <!-- Libaries-->
+    <script type="text/javascript" src="./scripts/jquery-1.7.2.min.js"></script>
+    <script src="http://malsup.github.com/jquery.form.js"></script>
+    <script type="text/javascript" src="./scripts/jquery-ui-1.8.20.custom.min.js"></script>
+    <script type="text/javascript" src="./scripts/ZeroClipboard.js"></script>
 
-				<div id="tabs-run">
-					<iframe id="run-window"></iframe>
-				</div> -->
-
-    <!-- Task Panel -->
-	<div class="tasks-panel">
-
-
-			<div id="task-container">
-				<button id="next-task" onclick="changeTask()">Next</button>
-					<div id="task"></div>
-			</div>
-			<!-- <div id="next"> <a href="#" class="nextBtn">Next_New</a>
-			</div> -->
-	</div>
-
-			<!-- Preview window -->
-			<div id="div-preview" onload="update()" class="undocked">
-				<div class="title-bar">
-					<p>Preview</p>
-					<button id="copy" onclick="highlightTextarea()">Copy</button>
-
-					<!-- <img class="dock" src="./images/fullsize.png" alt="dock window"/>
-					<img class="close" src="./images/cancel.png" alt="close button" /> -->
-				</div>
-				<iframe id="iframe-preview"></iframe>
-        <!-- <div id="annotation" class="annotation">Change the h2 (main heading/title)</div> -->
-        <img src="./images/h2_heading.png" id="h2_annotation" alt="h2 heading description" style="width:90px;height:50px">
-        <img src="./images/h3_heading.png" id="h3_annotation" alt="h2 heading description"style="width:90px;height:50px">
-        <img src="./images/impact_figure.png" id="impact_figure" alt="impact figure" style="width:90px;height:50px">
-			</div>
-	<<!-- div id="myForm">
-		<form id="myForm" action="email.php" method="post">
-		    Email: <input type="text" name="email" />
-		    <input type="submit" value="Send Data Pic" />
-		</form>
-	</div>
- -->
+    <!-- DataPic Editor -->
+    <script type="text/javascript" src="./scripts/main.js"></script>
 	</body>
 </html>
