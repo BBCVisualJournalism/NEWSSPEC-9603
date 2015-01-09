@@ -21,25 +21,9 @@
     <div id="content">
             <div id="project-name"><p>Make it Digital - Datapic Editor</p></div>
 
-            <!-- *** RESET BUTTON ** -->
-            <!-- <div id="toolbar">
-                <ul id="ul-toolbar">
-                    <li><a id="a-reset" href="#"><span>Reset</span></a></li>
-                </ul>
-            </div> -->
-
-            <!-- TABS - HTML AND CSS IN ONE TAB -->
-             <!--<div id="tabs-html">
-                <ul>
-                    <li><a href="#tabs-html">CODE</a></li>
-                </ul>
-            </div>-->
-
-
-    <button id="d_clip_button" data-clipboard-text="Copy Me!" title="Click to copy.">Test</button>
-
     <!-- DIV and Text area START -->
         <div class="code-lines html-code"><span>1</span></div>
+        <button id="d_clip_button" data-clipboard-text="Copy Me!" title="Click to copy.">Copy Code</button>
           <textarea id="html-window" class="white" rows="38" >
             <body>
             <style>
@@ -287,7 +271,7 @@
                         <div class="ns_header">
                             <div class="ns_super_impact  ns_header_left">
                                 <p class="ns_super_impact__fig">5,689</p>
-                                <p>Deaths - probable, confirmed and suspected</p>
+                                <p class="pragraph">Deaths - probable, confirmed and suspected</p>
                           </div>
                             <div class="ns_super_impact  ns_header_right">
                                 <p class="ns_super_impact__fig_other"></p>
@@ -331,12 +315,16 @@
                 <div class="title-bar">
                     <p>Preview</p>
                 </div>
+                <a href="#" id="screenshotlink" target="_blank">
                 <iframe id="iframe-preview"></iframe>
+                </a>
+        <button id="screenshot" id="screenshot" onclick="takeScreenshot()">Snap</button>
 
        <!-- Annotationsgraphics -->
               <img src="./images/h2_heading.png" id="h2_annotation" alt="h2 heading description" style="width:90px;height:50px">
               <img src="./images/h3_heading.png" id="h3_annotation" alt="h2 heading description"style="width:90px;height:50px">
               <img src="./images/impact_figure.png" id="impact_figure" alt="impact figure" style="width:90px;height:50px">
+              <img src="./images/paragraph.jpg" id="paragraph" alt="paragraph annotation" style="width:90px;height:50px">
         </div>
 
     </div>

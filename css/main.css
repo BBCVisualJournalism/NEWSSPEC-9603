@@ -2,7 +2,7 @@ body {
 	font-family: verdana, arial, sans-serif;
 	font-size: 12px;
 	width: 100%;
-	background-color: #8f8f8f;
+	background-color: white;
 	padding: 0px;
 	margin: 0px;
 }
@@ -56,6 +56,11 @@ header {
 }
 
 /* ----- Content ----- */
+
+#content {
+    width: 100%;
+}
+
 #project-name {
 	background: none no-repeat scroll 0 0 #009999;
     color: #ffffff;
@@ -73,7 +78,7 @@ header {
 	top: 2px;
 }
 
-#toolbar {
+/*#toolbar {
 	background-color: #ffffff;
     font-size: 11px;
     height: 24px;
@@ -107,7 +112,7 @@ header {
 	background-color: #494949;
 	border: 1px solid black;
 	padding: 2px 5px;
-}
+}*/
 
 div.code-lines {
 	position: relative;
@@ -189,19 +194,14 @@ div.code-lines span {
 }
 
 #div-preview, #div-about, #div-download {
-	border: 2px solid #777777;
-    height: 75%;
-    left: 318px;
+	border: 1px solid #777777;
+    height: 61%;
+    left: 50%;
     padding: 1px;
     position: absolute;
     right: 475px !important;
-    top: 23%;
-    width: 49%;
-}
-
-#div-preview {
-	left: 712px;
-    top: 95px;
+    top: 10%;
+    width: 45%;
 }
 
 #div-preview div.title-bar,  #div-about div.title-bar, #div-download div.title-bar {
@@ -294,10 +294,9 @@ div.code-lines span {
 }
 
 #html-window {
-	position: fixed;
-	width: 50%;
-	height: 100%;
-	resize: none;
+	position: absolute;
+	width: 47%;
+	height: 87%;
 	overflow-y: scroll !important;
 }
 
@@ -338,9 +337,17 @@ div.code-lines span {
 
 #d_clip_button {
     color: #009999;
-    left: 49%;
+    left: 45%;
     position: absolute;
-    top: 15%;
+    top: 8%;
+    z-index: 1;
+}
+
+#screenshot {
+    color: #009999;
+    left: 85%;
+    position: absolute;
+    top: 1%;
     z-index: 1;
 }
 
@@ -391,4 +398,13 @@ div.code-lines span {
 
 #content {
     background-color: white;
+}
+
+#paragraph {
+    color: blue;
+    display: block;
+    height: 10px;
+    left: 297px;
+    position: absolute;
+    top: 113px;
 }

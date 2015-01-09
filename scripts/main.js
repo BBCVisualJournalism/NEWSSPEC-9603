@@ -1,10 +1,15 @@
 var HidePreviewWindowAnnotations = function () {
 
-    $(document).ready(function(){
+$(document).ready(function(){
         $( ".annotation" ).hide();
     });
 
 };
+
+$( document ).ready(function() {
+    updateCodeLineNumber('html');
+    changeTextareaSize('html');
+});
 
 // // >>> Main Variables
 var wleft; // preview window current left position
@@ -111,10 +116,6 @@ var updateCodeLineNumber = function(tab_name) {
 
 var codeLineNumberManagement = function() {
 // function that assigns the proper events and sub-functions to deal with code line number management
-$( document ).ready(function() {
-updateCodeLineNumber('html');
-changeTextareaSize('html');
-});
 $("#html-window").keydown(function() {
 updateCodeLineNumber('html');
 changeTextareaSize('html');
@@ -530,12 +531,14 @@ function changeTask() {
 $(document).on('ready', function(){
     $("#h3_annotation").hide();
     $("#impact_figure").hide();
+    $("#paragraph").hide();
     var code = $("#iframe-preview").contents().find("h2");
-    code.css("background-color","pink") && $("#h2_annotation").show();
+    code.css("background-color","pink") && $("#h2_annotation").show(2000);
     get_h2 = $("#iframe-preview").contents().find('#ns_title').text();
     get_h3 = $("#iframe-preview").contents().find('.ns_subtitle').text();
     get_impact_figure = $("#iframe-preview").contents().find('.ns_super_impact__fig').text();
-    original = {h2: get_h2, h3: get_h3, figure: get_impact_figure};
+    get_pragraph = $("#iframe-preview").contents().find('.pragraph').text();
+    original = {h2: get_h2, h3: get_h3, figure: get_impact_figure, paragraph: get_pragraph};
     get_html_window = $('#html-window').contents().text();
 
 });
@@ -559,10 +562,10 @@ $(document).on('keyup', function(){
             get_h3 = $("#iframe-preview").contents().find('.ns_subtitle');
             //console.log(original.h3);
             // figure = $("#iframe-preview").contents().find(".ns_impact__fig");
-            get_h3.css("background-color","pink") && $('#h3_annotation').show() && $("#h2_annotation").hide();
+            get_h3.css("background-color","pink", 2000) && $('#h3_annotation').show(2000) && $("#h2_annotation").hide() && $("#paragraph").hide();
         console.log('dont match ' + 'original:' + original.h2 + 'new:' + $("#iframe-preview").contents().find('.ns_title').text());
         }
-    }, 200);
+    }, 5000);
 
     setTimeout(function(){
         if (original.h3 === $("#iframe-preview").contents().find('.ns_subtitle').text()) {
@@ -572,13 +575,45 @@ $(document).on('keyup', function(){
             get_impact_figure = $("#iframe-preview").contents().find('.ns_super_impact__fig');
             // console.log(original.figure);
             // figure = $("#iframe-preview").contents().find(".ns_impact__fig");
-            get_h3.css("background-color","transparent") && get_impact_figure.css("background-color","pink") && $('#impact_figure').show() && $("#h2_annotation").hide() && $("#h3_annotation").hide();
+            get_h3.css("background-color","transparent") && get_impact_figure.css("background-color","pink", 2000) && $('#impact_figure').show(2000) && $("#h2_annotation").hide() && $("#h3_annotation").hide() && $("#paragraph").hide();
         console.log('dont match ' + 'original:' + original.h3 + 'new:' + $("#iframe-preview").contents().find('.ns_subtitle').text());
         }
-    }, 500);
+    }, 5000);
+
+    setTimeout(function(){
+        if (original.figure === $("#iframe-preview").contents().find('.ns_super_impact__fig').text()) {
+        console.log('match ' + 'original:' + original.figure + 'new:' + $("#iframe-preview").contents().find('.ns_super_impact__fig').text());
+        }
+        else {
+            get_pragraph = $("#iframe-preview").contents().find('.pragraph');
+            // console.log(original.figure);
+            // figure = $("#iframe-preview").contents().find(".ns_impact__fig");
+            get_impact_figure.css("background-color","transparent") && get_pragraph.css("background-color","pink", 2000) && $('#paragraph').show(2000) && $("#h2_annotation").hide() && $("#h3_annotation").hide() && $("#impact_figure").hide();
+        console.log('dont match ' + 'original:' + original.figure + 'new:' + $("#iframe-preview").contents().find('.ns_super_impact__fig').text());
+        }
+    }, 5000);
 
 
 });
+
+var targetFunction = function () {
+    alert("test");
+
+};
+
+//This opens the iframe in a new Browser Window
+var takeScreenshot = function () {
+
+    var newIframe = document.createElement('iframe');
+    var y = (newIframe.contentWindow || newIframe.contentDocument);
+    var iframeCopy = document.getElementById('html-window').value;
+    var newWindow = window.open('');
+    newWindow.document.body.appendChild(newIframe);
+    newWindow.document.write(iframeCopy);
+    newWindow.alert('Take a screenshot by pressing the following keys:\nCtr + Alt + Prt Scr (on a PC)\ncmd + shift + 3 (on a Mac)\nThen use file preview to crop and save your data pic.');
+    newWindow.document.close();
+
+};
 
 var setUpUITabs = function () {
 
@@ -609,6 +644,8 @@ changeTextareaSize();
 getTextareaBufferData();
 checkForEmptyLine();
 updateCodeLineNumber();
+takeScreenshot();
+onClickFunctions();
 
 
 
