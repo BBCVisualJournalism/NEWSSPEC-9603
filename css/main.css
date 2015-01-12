@@ -78,42 +78,6 @@ header {
 	top: 2px;
 }
 
-/*#toolbar {
-	background-color: #ffffff;
-    font-size: 11px;
-    height: 24px;
-    left: 0;
-    padding-top: 2px;
-    position: absolute;
-    top: 126px;
-    width: 95%;
-    z-index: 1;
-}
-
-#ul-toolbar {
-	position: relative;
-	top: -7px;
-}
-
-#ul-toolbar li {
-	display: inline;
-}
-
-#ul-toolbar li a {
-	text-decoration: none;
-	color: white;
-}
-
-#ul-toolbar li a:hover {
-	color: #a8c0f4;
-}
-
-#ul-toolbar li a span {
-	background-color: #494949;
-	border: 1px solid black;
-	padding: 2px 5px;
-}*/
-
 div.code-lines {
 	position: relative;
 	float: left;
@@ -388,7 +352,7 @@ div.code-lines span {
     height: 10px;
     left: 175px;
     position: absolute;
-    top: 43px;
+    top: 72px;
 }
 
 #d_debug {

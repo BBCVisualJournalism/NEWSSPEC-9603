@@ -520,6 +520,20 @@ function changeTask() {
     }
 }
 
+//throttles calls & limits rate a function can fire
+function debounce(callback, context, ms) {
+        var timeout;
+        return function () {
+            var args = arguments;
+            clearTimeout(timeout);
+            timeout = setTimeout(function () {
+                timeout = null;
+                callback.apply(context, args);
+            }, ms);
+        };
+    }
+
+
     var get_h2 = '';
     var get_h3 = '';
     var get_impact_figure = '';
@@ -533,7 +547,7 @@ $(document).on('ready', function(){
     $("#impact_figure").hide();
     $("#paragraph").hide();
     var code = $("#iframe-preview").contents().find("h2");
-    code.css("background-color","pink") && $("#h2_annotation").show(2000);
+    code.css("background-color","pink", 1000) && $("#h2_annotation").show(1000);
     get_h2 = $("#iframe-preview").contents().find('#ns_title').text();
     get_h3 = $("#iframe-preview").contents().find('.ns_subtitle').text();
     get_impact_figure = $("#iframe-preview").contents().find('.ns_super_impact__fig').text();
@@ -543,16 +557,10 @@ $(document).on('ready', function(){
 
 });
 
-// function operacion(){
-//                         get_html_window = $('#html-window').contents().text();
+var e = jQuery.Event( "keydown");
 
-//                 }
-
-// var code = $("#iframe-preview").contents().find("h3");
-$(document).on('keyup', function(){
-     get_h2 = $("#iframe-preview").contents().find('#ns_title').text();
-     // localStorage.setItem("savedDataPic", get_html_window);
-     // console.log(localStorage);
+$(document).on('keyup', debounce(function(){
+     //get_h2 = $("#iframe-preview").contents().find('#ns_title').text();
 
     setTimeout(function(){
         if (original.h2 === $("#iframe-preview").contents().find('#ns_title').text()) {
@@ -563,22 +571,20 @@ $(document).on('keyup', function(){
             //console.log(original.h3);
             // figure = $("#iframe-preview").contents().find(".ns_impact__fig");
             get_h3.css("background-color","pink", 2000) && $('#h3_annotation').show(2000) && $("#h2_annotation").hide() && $("#paragraph").hide();
-        console.log('dont match ' + 'original:' + original.h2 + 'new:' + $("#iframe-preview").contents().find('.ns_title').text());
+        console.log('H2 CHANGE & H3 GRAPHIC CHANGE' + 'dont match ' + 'original:' + original.h2 + 'new:' + $("#iframe-preview").contents().find('.ns_title').text());
         }
-    }, 5000);
+    }, 2000);
 
     setTimeout(function(){
         if (original.h3 === $("#iframe-preview").contents().find('.ns_subtitle').text()) {
-        console.log('match ' + 'original:' + original.h3 + 'new:' + $("#iframe-preview").contents().find('.ns_subtitle').text());
+        console.log( 'match ' + 'original:' + original.h3 + 'new:' + $("#iframe-preview").contents().find('.ns_subtitle').text());
         }
         else {
             get_impact_figure = $("#iframe-preview").contents().find('.ns_super_impact__fig');
-            // console.log(original.figure);
-            // figure = $("#iframe-preview").contents().find(".ns_impact__fig");
             get_h3.css("background-color","transparent") && get_impact_figure.css("background-color","pink", 2000) && $('#impact_figure').show(2000) && $("#h2_annotation").hide() && $("#h3_annotation").hide() && $("#paragraph").hide();
-        console.log('dont match ' + 'original:' + original.h3 + 'new:' + $("#iframe-preview").contents().find('.ns_subtitle').text());
+        console.log('H3 + FIGURE GRAPHIC CHANGE' + 'dont match ' + 'original:' + original.h3 + 'new:' + $("#iframe-preview").contents().find('.ns_subtitle').text());
         }
-    }, 5000);
+    }, 2000);
 
     setTimeout(function(){
         if (original.figure === $("#iframe-preview").contents().find('.ns_super_impact__fig').text()) {
@@ -589,12 +595,12 @@ $(document).on('keyup', function(){
             // console.log(original.figure);
             // figure = $("#iframe-preview").contents().find(".ns_impact__fig");
             get_impact_figure.css("background-color","transparent") && get_pragraph.css("background-color","pink", 2000) && $('#paragraph').show(2000) && $("#h2_annotation").hide() && $("#h3_annotation").hide() && $("#impact_figure").hide();
-        console.log('dont match ' + 'original:' + original.figure + 'new:' + $("#iframe-preview").contents().find('.ns_super_impact__fig').text());
+        console.log('FIGURE CHANGE + ADD PARAGRAPH GRAPHIC' + 'dont match ' + 'original:' + original.figure + 'new:' + $("#iframe-preview").contents().find('.ns_super_impact__fig').text());
         }
-    }, 5000);
+    }, 2000);
+}, 1000));
 
 
-});
 
 var targetFunction = function () {
     alert("test");
