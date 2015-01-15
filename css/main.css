@@ -372,3 +372,7 @@ div.code-lines span {
     position: absolute;
     top: 113px;
 }
+
+.impact_figure {
+    background-color: red;
+}
