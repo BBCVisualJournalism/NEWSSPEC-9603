@@ -548,119 +548,75 @@ function debounce(callback, context, ms) {
     var changed_paragraph = '';
     var changed = '';
 
+    var originalArray;
+    var changedArray;
+    var annotationArray;
+
 $(document).on('ready', function(){
     $("#h3_annotation").hide();
     $("#impact_figure").hide();
     $("#paragraph").hide();
     var code = $("#iframe-preview").contents().find("h2");
     code.css("background-color","pink", 1000) && $("#h2_annotation").show(1000);
+    originalArray = [
+        $("#iframe-preview").contents().find('#ns_title').text(),
+        $("#iframe-preview").contents().find('.ns_subtitle').text(),
+        $("#iframe-preview").contents().find('.ns_super_impact__fig').text(),
+        $("#iframe-preview").contents().find('.pragraph').text()
+    ],
+    changedArray = [
+        '#ns_title',
+        '.ns_subtitle',
+        '.ns_super_impact__fig',
+        '.pragraph'
+    ],
+    annotationArray = [
+        $("#h2_annotation"),
+        $("#h3_annotation"),
+        $("#impact_figure"),
+        $("#paragraph")
+    ];
 
-    //vars for original object
-    get_h2 = $("#iframe-preview").contents().find('#ns_title').text();
-    get_h3 = $("#iframe-preview").contents().find('.ns_subtitle').text();
-    get_impact_figure = $("#iframe-preview").contents().find('.ns_super_impact__fig').text();
-    get_pragraph = $("#iframe-preview").contents().find('.pragraph').text();
-    original = {h2: get_h2, h3: get_h3, figure: get_impact_figure, paragraph: get_pragraph};
-    originalArray = [get_h2, get_h3, get_impact_figure, get_pragraph];
+    //Add array for the highlighting
+
+    console.log(originalArray);
+
+
     get_html_window = $('#html-window').contents().text();
+
+    setInterval(function counter (){
+    // console.log(originalArray, changedArray, annotationArray);
+
+    //Does not execute the 3rd else if statement
+    for (var i =0; i < originalArray.length; i++) {
+       if (originalArray[i] !== $("#iframe-preview").contents().find(changedArray[i]).text()) {
+            console.log(changedArray[i] + " ", originalArray + " ");
+            console.log("here we put up the speech bubble by emitting an event!!!")
+            annotationArray[i].hide();
+            //if (annotationArray[i + 1] < annotationArray.length) {
+            annotationArray[i + 1].show();
+            //}
+            console.log("Clean the arrays");
+            originalArray.splice(i, 1);
+            changedArray.splice(i, 1);
+            annotationArray.splice(i, 1);
+            console.log(originalArray, changedArray, annotationArray);
+            }
+        }
+    }, 4000);
 
 });
 
-    //vars for changed object
-    changed_h2 = $("#iframe-preview").contents().find('#ns_title').text();
-    changed_h3 = $("#iframe-preview").contents().find('.ns_subtitle').text();
-    changed_figure = $("#iframe-preview").contents().find('.ns_super_impact__fig').text();
-    changed_paragraph = $("#iframe-preview").contents().find('.pragraph');
-    changed = {h2New: changed_h2, h3News: changed_h3, figureNew: changed_figure, paragraphNew: changed_paragraph};
+
+// var checkHTML = function(html) {
+//   var doc = document.createElement('div');
+//   doc.innerHTML = html;
+//   return ( doc.innerHTML === html );
+// }
 
 
-// //OLD CLUE STEP THROUGH
-// $(document).on('keyup', debounce(function(){
-//      //get_h2 = $("#iframe-preview").contents().find('#ns_title').text();
-
-//     setTimeout(function(){
-//         if (original.h2 === $("#iframe-preview").contents().find('#ns_title').text()) {
-//         console.log('match ' + 'original:' + original.h2 + 'new:' + $("#iframe-preview").contents().find('.ns_title').text());
-//         }
-//         else {
-//             get_h3 = $("#iframe-preview").contents().find('.ns_subtitle');
-//             //console.log(original.h3);
-//             // figure = $("#iframe-preview").contents().find(".ns_impact__fig");
-//             get_h3.css("background-color","pink", 2000) && $('#h3_annotation').show(2000) && $("#h2_annotation").hide() && $("#paragraph").hide();
-//             function incrementIndex() {
-//                 var index = 0;
-//                 function plus() {index =+ 1;};
-//                 plus();
-//                 return index;
-//             }
-//         console.log('counter ' + index);
-//         }
-//     }, 2000);
-
-//     setTimeout(function(){
-//         if (original.h3 === $("#iframe-preview").contents().find('.ns_subtitle').text()) {
-//         console.log( 'match ' + 'original:' + original.h3 + 'new:' + $("#iframe-preview").contents().find('.ns_subtitle').text());
-//         }
-//         else {
-//             get_impact_figure = $("#iframe-preview").contents().find('.ns_super_impact__fig');
-//             get_h3.css("background-color","transparent") && get_impact_figure.css("background-color","pink", 2000) && $('#impact_figure').show(2000) && $("#h2_annotation").hide() && $("#h3_annotation").hide() && $("#paragraph").hide();
-//         console.log('H3 + FIGURE GRAPHIC CHANGE' + 'dont match ' + 'original:' + original.h3 + 'new:' + $("#iframe-preview").contents().find('.ns_subtitle').text());
-//         }
-//     }, 2000);
-
-//     setTimeout(function(){
-//         if (original.figure === $("#iframe-preview").contents().find('.ns_super_impact__fig').text()) {
-//         console.log('match ' + 'original:' + original.figure + 'new:' + $("#iframe-preview").contents().find('.ns_super_impact__fig').text());
-//         }
-//         else {
-//             get_pragraph = $("#iframe-preview").contents().find('.pragraph');
-//             // console.log(original.figure);
-//             // figure = $("#iframe-preview").contents().find(".ns_impact__fig");
-//             get_impact_figure.css("background-color","transparent") && get_pragraph.css("background-color","pink", 2000) && $('#paragraph').show(2000) && $("#h2_annotation").hide() && $("#h3_annotation").hide() && $("#impact_figure").hide();
-//         console.log('FIGURE CHANGE + ADD PARAGRAPH GRAPHIC' + 'dont match ' + 'original:' + original.figure + 'new:' + $("#iframe-preview").contents().find('.ns_super_impact__fig').text());
-//         }
-//     }, 2000);
-// }, 1000));
 count = 0;
-//NEW COUNTER
-setInterval(function counter(){
-    var i;
-    for (i =0; i < originalArray.length; i++) {
-        if (original.h2 === $("#iframe-preview").contents().find('#ns_title').text() || count > 1) {
-        console.log('match ' + 'original:' + original.h2 + 'new:' + $("#iframe-preview").contents().find('.ns_title').text());
-        }
-        else {
-            get_h3 = $("#iframe-preview").contents().find('.ns_subtitle');
-            console.log('H2 CHANGED ' + 'dont match ' + 'original:' + original.h2 + 'new:' + changed.h2);
-            get_h3.css("background-color","pink", 100) && $('#h3_annotation').show(2000) && $("#h2_annotation").hide() && $("#paragraph").hide();
-        count++;
-        }
-    }
-}, 1000);
 
-setInterval(function counter2(){
-var j;
-        for (j =0; j < originalArray.length; j++) {
-            if (original.h3 === $("#iframe-preview").contents().find('.ns_subtitle').text() || count > 1) {
-            //get_impact_figure.css("background-color","transparent", 2000);
-            console.log('match ' + 'original:' + original.h3 + 'new:' + $("#iframe-preview").contents().find('.ns_subtitle').text());
-            }
-            else {
-                //$("#iframe-preview").addClass("impact_figure");
-                get_impact_figure = $("#iframe-preview").contents().find('.ns_super_impact__fig');
-                console.log(get_impact_figure);
-                get_impact_figure.css("background-color","pink", 100) && $('#impact_figure').show(2000) && $("#h2_annotation").hide();
-                console.log('!!!!H3 CHANGED ' + 'dont match ' + 'original:' + original.h3 + 'new:' + changed.h3);
-            count++;
-            }
-        }
-}, 1000);
-
-
-var targetFunction = function () {
-    alert("test");
-
-};
 
 //This opens the iframe in a new Browser Window
 var takeScreenshot = function () {

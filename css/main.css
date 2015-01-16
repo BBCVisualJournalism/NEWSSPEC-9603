@@ -330,7 +330,7 @@ div.code-lines span {
 
 #h2_annotation {
     color: blue;
-    display: block;
+    display: none;
     height: 10px;
     left: 280px;
     position: absolute;
@@ -339,7 +339,7 @@ div.code-lines span {
 
 #h3_annotation {
     color: blue;
-    display: block;
+    display: none;
     height: 10px;
     left: 175px;
     position: absolute;
@@ -348,11 +348,20 @@ div.code-lines span {
 
 #impact_figure {
     color: blue;
-    display: block;
+    display: none;
     height: 10px;
     left: 175px;
     position: absolute;
     top: 72px;
+}
+
+#paragraph {
+    color: blue;
+    display: none;
+    height: 10px;
+    left: 175px;
+    position: absolute;
+    top: 92px;
 }
 
 #d_debug {
