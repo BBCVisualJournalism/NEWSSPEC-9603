@@ -557,12 +557,12 @@ $(document).on('ready', function(){
     $("#impact_figure").hide();
     $("#paragraph").hide();
     var code = $("#iframe-preview").contents().find("h2");
-    code.css("background-color","pink", 1000) && $("#h2_annotation").show(1000);
+    code.css("background-color","yellow", 1000) && $("#h2_annotation").show(1000);
     originalArray = [
-        $("#iframe-preview").contents().find('#ns_title').text(),
-        $("#iframe-preview").contents().find('.ns_subtitle').text(),
-        $("#iframe-preview").contents().find('.ns_super_impact__fig').text(),
-        $("#iframe-preview").contents().find('.pragraph').text()
+        $("#iframe-preview").contents().find('#ns_title'),
+        $("#iframe-preview").contents().find('.ns_subtitle'),
+        $("#iframe-preview").contents().find('.ns_super_impact__fig'),
+        $("#iframe-preview").contents().find('.pragraph')
     ],
     changedArray = [
         '#ns_title',
@@ -577,10 +577,6 @@ $(document).on('ready', function(){
         $("#paragraph")
     ];
 
-    //Add array for the highlighting
-
-    console.log(originalArray);
-
 
     get_html_window = $('#html-window').contents().text();
 
@@ -589,21 +585,27 @@ $(document).on('ready', function(){
 
     //Does not execute the 3rd else if statement
     for (var i =0; i < originalArray.length; i++) {
-       if (originalArray[i] !== $("#iframe-preview").contents().find(changedArray[i]).text()) {
-            console.log(changedArray[i] + " ", originalArray + " ");
-            console.log("here we put up the speech bubble by emitting an event!!!")
+       if (originalArray[i].text() !== $("#iframe-preview").contents().find(changedArray[i]).text()) {
             annotationArray[i].hide();
+
+            $("#iframe-preview").contents().find(changedArray[i + 1]).css('background-color', 'yellow');
+
             //if (annotationArray[i + 1] < annotationArray.length) {
             annotationArray[i + 1].show();
-            //}
-            console.log("Clean the arrays");
+
+            //console.log('CHANGED ARRAY ' + changedArray[i]);
+            //console.log('ORIGINAL ARRAY ' + originalArray[i].text);
             originalArray.splice(i, 1);
             changedArray.splice(i, 1);
             annotationArray.splice(i, 1);
-            console.log(originalArray, changedArray, annotationArray);
+            //hides the first speech bubble when something else was changed but we want it to show another asset instead
+            //eliminate hide error
+            if ($("#iframe-preview").contents().find(annotationArray[i - 1])) {
+                annotationArray[i-1].hide();
+                }
             }
         }
-    }, 4000);
+    }, 3000);
 
 });
 
