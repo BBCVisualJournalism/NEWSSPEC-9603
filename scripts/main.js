@@ -556,25 +556,48 @@ $(document).on('ready', function(){
     $("#h3_annotation").hide();
     $("#impact_figure").hide();
     $("#paragraph").hide();
+    //$("#list_figures_annotation").hide;
+
     var code = $("#iframe-preview").contents().find("h2");
-    code.css("background-color","yellow", 1000) && $("#h2_annotation").show(1000);
+    code.css("background-color","yellow", 1000) && $("#h2_annotation").show(1000) && $("#h2_explainer").show(1000);
     originalArray = [
         $("#iframe-preview").contents().find('#ns_title'),
         $("#iframe-preview").contents().find('.ns_subtitle'),
         $("#iframe-preview").contents().find('.ns_super_impact__fig'),
-        $("#iframe-preview").contents().find('.pragraph')
+        $("#iframe-preview").contents().find('.pragraph'),
+        $("#iframe-preview").contents().find('.ns_impact__fig'),
+        $("#iframe-preview").contents().find('.ns_footer')
+
+
     ],
     changedArray = [
         '#ns_title',
         '.ns_subtitle',
         '.ns_super_impact__fig',
-        '.pragraph'
+        '.pragraph',
+        '.ns_impact__fig',
+        '.ns_footer',
+        '.ns_outer_wrapper'
     ],
+
     annotationArray = [
         $("#h2_annotation"),
         $("#h3_annotation"),
         $("#impact_figure"),
-        $("#paragraph")
+        $("#paragraph"),
+        $("#list_figures_annotation"),
+        $("#source_annotation"),
+        $("#preview-overlay")
+    ];
+
+    explainerArray = [
+   $("#h2_explainer"),
+   $("#h3_explainer"),
+   $("#impact_figure_explainer"),
+   $("#paragraph_explainer"),
+   $("#list_figures_explainer"),
+   $("#source_explainer"),
+   $("#bgimage_explainer")
     ];
 
 
@@ -586,35 +609,33 @@ $(document).on('ready', function(){
     //Does not execute the 3rd else if statement
     for (var i =0; i < originalArray.length; i++) {
        if (originalArray[i].text() !== $("#iframe-preview").contents().find(changedArray[i]).text()) {
+            explainerArray[i].hide();
             annotationArray[i].hide();
 
             $("#iframe-preview").contents().find(changedArray[i + 1]).css('background-color', 'yellow');
 
-            //if (annotationArray[i + 1] < annotationArray.length) {
             annotationArray[i + 1].show();
+            explainerArray[i + 1].show();
 
             //console.log('CHANGED ARRAY ' + changedArray[i]);
             //console.log('ORIGINAL ARRAY ' + originalArray[i].text);
             originalArray.splice(i, 1);
             changedArray.splice(i, 1);
             annotationArray.splice(i, 1);
+            explainerArray.splice(i, 1);
             //hides the first speech bubble when something else was changed but we want it to show another asset instead
             //eliminate hide error
-            if ($("#iframe-preview").contents().find(annotationArray[i - 1])) {
-                annotationArray[i-1].hide();
-                }
+            // if ($("#iframe-preview").contents().find(annotationArray[i - 1])) {
+            //     annotationArray[i-1].hide();
+            //     }
+            // if ($("#iframe-preview").contents().find(annotationArray[i - 2])) {
+            //     annotationArray[i-2].hide();
+            //     }
             }
         }
     }, 3000);
 
 });
-
-
-// var checkHTML = function(html) {
-//   var doc = document.createElement('div');
-//   doc.innerHTML = html;
-//   return ( doc.innerHTML === html );
-// }
 
 
 count = 0;

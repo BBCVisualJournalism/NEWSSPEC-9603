@@ -159,7 +159,7 @@ div.code-lines span {
 
 #div-preview, #div-about, #div-download {
 	border: 1px solid #777777;
-    height: 61%;
+    height: 88%;
     left: 50%;
     padding: 1px;
     position: absolute;
@@ -257,6 +257,27 @@ div.code-lines span {
 	border: none;
 }
 
+#explainer {
+    font-size: 15px;
+    z-index: 1;
+    position: absolute;
+    top:62%;
+    left:3%;
+    font-family: Arial;
+}
+
+#preview-overlay {
+    background-color: yellow;
+    height: 55%;
+    left: 10px;
+    opacity: 0.5;
+    position: absolute;
+    top: 40px;
+    width: 96%;
+    display: none;
+
+}
+
 #html-window {
 	position: absolute;
 	width: 47%;
@@ -328,40 +349,136 @@ div.code-lines span {
     color: #009999;
 }
 
+/*Annotation Array stylings */
+
 #h2_annotation {
-    color: blue;
-    display: none;
-    height: 10px;
-    left: 280px;
+    left: 50%;
     position: absolute;
-    top: 19px;
+    top: 6%;
+    z-index: 1;
+    display: none;
 }
 
 #h3_annotation {
-    color: blue;
-    display: none;
-    height: 10px;
-    left: 175px;
+    /*background-image: url('../images/h3_heading.png');*/
+    left: 50%;
     position: absolute;
-    top: 33px;
+    top: 11%;
+    z-index: 1;
+    width:50%;
+    height:31px
+
+
 }
 
+/*Add styles for webkit*/
+#h3_annotation {
+    -webkit-transform: scale(50px);
+}
+
+
+
 #impact_figure {
-    color: blue;
     display: none;
-    height: 10px;
-    left: 175px;
+    /*background-image: url('../images/impact_figure.png');*/
+    left: 44%;
     position: absolute;
-    top: 72px;
+    top: 16%;
+    z-index: 1;
 }
 
 #paragraph {
-    color: blue;
     display: none;
-    height: 10px;
-    left: 175px;
+    /*background-image: url('../images/paragraph.png');*/
+    left: 46%;
     position: absolute;
-    top: 92px;
+    top: 24%;
+    z-index: 1;
+}
+
+#list_figures_annotation {
+    display: none;
+    /*background-image: url('../images/list_figures.png');*/
+    left: 52%;
+    position: absolute;
+    top: 32%;
+    z-index: 1;
+}
+
+#source_annotation {
+    /*background-image: url('../images/source.png');*/
+    display: none;
+    left: 51%;
+    position: absolute;
+    top: 60%;
+    z-index: 1;
+    display: none;
+}
+
+/*Explainer Array Stylings */
+
+#h2_explainer {
+    font-family: Arial;
+    font-size: 18px;
+    left: 3%;
+    position: absolute;
+    top: 63%;
+    z-index: 1;
+    display: none;
+}
+
+#h3_explainer{
+
+    font-family: Arial;
+    font-size: 18px;
+    left: 3%;
+    position: absolute;
+    top: 63%;
+    z-index: 1;
+    display: none;
+}
+
+#impact_figure_explainer{
+    font-family: Arial;
+    font-size: 18px;
+    left: 3%;
+    position: absolute;
+    top: 63%;
+    z-index: 1;
+    display: none;
+}
+
+#paragraph_explainer{
+    font-family: Arial;
+    font-size: 18px;
+    left: 3%;
+    position: absolute;
+    top: 63%;
+    z-index: 1;
+    display: none;
+}
+
+#list_figures_explainer{
+
+    font-family: Arial;
+    font-size: 18px;
+    left: 3%;
+    position: absolute;
+    top: 63%;
+    z-index: 1;
+    display: none;
+}
+
+
+#bgimage_explainer{
+
+    font-family: Arial;
+    font-size: 18px;
+    left: 3%;
+    position: absolute;
+    top: 63%;
+    z-index: 1;
+    display: none;
 }
 
 #d_debug {
@@ -371,15 +488,6 @@ div.code-lines span {
 
 #content {
     background-color: white;
-}
-
-#paragraph {
-    color: blue;
-    display: block;
-    height: 10px;
-    left: 297px;
-    position: absolute;
-    top: 113px;
 }
 
 .change_background {
