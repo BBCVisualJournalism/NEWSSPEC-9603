@@ -560,31 +560,34 @@ $(document).on('ready', function(){
 
     var code = $("#iframe-preview").contents().find("h2");
     code.css("background-color","yellow", 1000) && $("#h2_annotation").show(1000) && $("#h2_explainer").show(1000);
+alert("This tool will help you build a data pic. You have to use HTML and CSS coding to put your own data pic together. Look out for hints and advice as you work through the instructions.");
+
+
     originalArray = [
-        $("#iframe-preview").contents().find('#ns_title'),
-        $("#iframe-preview").contents().find('.ns_subtitle'),
-        $("#iframe-preview").contents().find('.ns_super_impact__fig'),
+        $("#iframe-preview").contents().find('#title'),
+        $("#iframe-preview").contents().find('.subtitle'),
+        $("#iframe-preview").contents().find('.super_impact__fig'),
         $("#iframe-preview").contents().find('.pragraph'),
-        $("#iframe-preview").contents().find('.ns_impact__fig'),
-        $("#iframe-preview").contents().find('.ns_footer')
+        $("#iframe-preview").contents().find('.impact__fig'),
+        $("#iframe-preview").contents().find('.footer')
 
 
     ],
     changedArray = [
-        '#ns_title',
-        '.ns_subtitle',
-        '.ns_super_impact__fig',
+        '#title',
+        '.subtitle',
+        '.super_impact__fig',
         '.pragraph',
-        '.ns_impact__fig',
-        '.ns_footer',
-        '.ns_outer_wrapper'
+        '.impact__fig',
+        '.footer',
+        '.outer_wrapper'
     ],
 
     annotationArray = [
         $("#h2_annotation"),
         $("#h3_annotation"),
-        $("#impact_figure"),
-        $("#paragraph"),
+        $("#impact_figure_annotation"),
+        $("#paragraph_annotation"),
         $("#list_figures_annotation"),
         $("#source_annotation"),
         $("#preview-overlay")
@@ -593,7 +596,7 @@ $(document).on('ready', function(){
     explainerArray = [
    $("#h2_explainer"),
    $("#h3_explainer"),
-   $("#impact_figure_explainer"),
+   $("#impact_figure_annotation_explainer"),
    $("#paragraph_explainer"),
    $("#list_figures_explainer"),
    $("#source_explainer"),
@@ -625,12 +628,22 @@ $(document).on('ready', function(){
             explainerArray.splice(i, 1);
             //hides the first speech bubble when something else was changed but we want it to show another asset instead
             //eliminate hide error
-            // if ($("#iframe-preview").contents().find(annotationArray[i - 1])) {
-            //     annotationArray[i-1].hide();
-            //     }
-            // if ($("#iframe-preview").contents().find(annotationArray[i - 2])) {
-            //     annotationArray[i-2].hide();
-            //     }
+            if ($("#iframe-preview").contents().find(annotationArray[i - 1])) {
+                annotationArray[i-1].hide();
+                explainerArray[i-1].hide();
+                }
+            if ($("#iframe-preview").contents().find(annotationArray[i - 2])) {
+                annotationArray[i-2].hide();
+                explainerArray[i-2].hide();
+                }
+            if ($("#iframe-preview").contents().find(annotationArray[i - 3])) {
+                annotationArray[i-3].hide();
+                explainerArray[i-3].hide();
+                }
+            if ($("#iframe-preview").contents().find(annotationArray[i - 3])) {
+                annotationArray[i-3].hide();
+                explainerArray[i-3].hide();
+                }
             }
         }
     }, 3000);

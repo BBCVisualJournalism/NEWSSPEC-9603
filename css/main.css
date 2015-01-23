@@ -81,9 +81,8 @@ header {
 div.code-lines {
 	position: relative;
 	float: left;
-	left: 0px;
-	top: 2px;
-	padding-top: 3px;
+	left: 4px;
+	top: 34px;
 	height: 535px;
 	width: 30px;
 	background-color: #d2d2d2;
@@ -158,13 +157,13 @@ div.code-lines span {
 }
 
 #div-preview, #div-about, #div-download {
-	border: 1px solid #777777;
+	border: 1px solid #009999;
     height: 88%;
     left: 50%;
     padding: 1px;
     position: absolute;
     right: 475px !important;
-    top: 10%;
+    top: 8px;
     width: 45%;
 }
 
@@ -268,21 +267,46 @@ div.code-lines span {
 
 #preview-overlay {
     background-color: yellow;
-    height: 55%;
+    height: 362px;
     left: 10px;
     opacity: 0.5;
     position: absolute;
     top: 40px;
-    width: 96%;
+    width: 624px;
     display: none;
 
 }
 
 #html-window {
-	position: absolute;
-	width: 47%;
-	height: 87%;
-	overflow-y: scroll !important;
+	 height: 87%;
+    overflow-y: scroll !important;
+    position: relative;
+    right: -6px;
+    top: 6px;
+    width: 47%;
+}
+
+#html_window-title-bar {
+    background-color: #009999;
+    border-style: double;
+    border-top-width: 3px;
+    border-bottom-width: 3px;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    height: 18px;
+    padding: 1px;
+    position: relative;
+    right: -35px;
+    top: 7px;
+    width: 47%;
+    z-index: 1;
+}
+
+.code_editor_text {
+    position: relative;
+    top: -11px;
+    left: -18px;
 }
 
 #css-window {
@@ -322,17 +346,19 @@ div.code-lines span {
 
 #d_clip_button {
     color: #009999;
-    left: 45%;
-    position: absolute;
-    top: 8%;
+    height: 26px;
+    left: 85%;
+    position: relative;
+    top: -42px;
     z-index: 1;
 }
 
 #screenshot {
     color: #009999;
-    left: 85%;
+    height: 26px;
+    left: 90%;
     position: absolute;
-    top: 1%;
+    top: -1px;
     z-index: 1;
 }
 
@@ -354,7 +380,7 @@ div.code-lines span {
 #h2_annotation {
     left: 50%;
     position: absolute;
-    top: 6%;
+    top: 38px;
     z-index: 1;
     display: none;
 }
@@ -363,122 +389,132 @@ div.code-lines span {
     /*background-image: url('../images/h3_heading.png');*/
     left: 50%;
     position: absolute;
-    top: 11%;
+    top: 68px;
     z-index: 1;
     width:50%;
     height:31px
-
-
-}
-
-/*Add styles for webkit*/
-#h3_annotation {
-    -webkit-transform: scale(50px);
-}
-
-
-
-#impact_figure {
-    display: none;
-    /*background-image: url('../images/impact_figure.png');*/
-    left: 44%;
-    position: absolute;
-    top: 16%;
-    z-index: 1;
 }
 
 #paragraph {
-    display: none;
-    /*background-image: url('../images/paragraph.png');*/
-    left: 46%;
+    left: 50%;
     position: absolute;
-    top: 24%;
+    top: 148px;
+    z-index: 1;
+    width:50%;
+    height:31px
+}
+
+#impact_figure {
+    display: none;
+    left: 52%;
+    position: absolute;
+    top: 99px;
     z-index: 1;
 }
 
 #list_figures_annotation {
     display: none;
-    /*background-image: url('../images/list_figures.png');*/
     left: 52%;
     position: absolute;
-    top: 32%;
+    top: 198px;
+    width:50%;
     z-index: 1;
 }
 
 #source_annotation {
-    /*background-image: url('../images/source.png');*/
     display: none;
     left: 51%;
     position: absolute;
-    top: 60%;
+    top: 373px;
+    width:50%;
     z-index: 1;
-    display: none;
 }
 
 /*Explainer Array Stylings */
 
 #h2_explainer {
+
     font-family: Arial;
-    font-size: 18px;
-    left: 3%;
+    font-size: 16px;
     position: absolute;
-    top: 63%;
+    top: 373px;
     z-index: 1;
     display: none;
+    padding: 6%;
+    left: -3%;
 }
 
 #h3_explainer{
 
     font-family: Arial;
-    font-size: 18px;
-    left: 3%;
+    font-size: 16px;
     position: absolute;
-    top: 63%;
+    top: 373px;
     z-index: 1;
     display: none;
+    padding: 6%;
+    left: -3%;
 }
 
 #impact_figure_explainer{
+
     font-family: Arial;
-    font-size: 18px;
-    left: 3%;
+    font-size: 16px;
     position: absolute;
-    top: 63%;
+    top: 373px;
     z-index: 1;
     display: none;
+    padding: 6%;
+    left: -3%;
 }
 
 #paragraph_explainer{
+
     font-family: Arial;
-    font-size: 18px;
-    left: 3%;
+    font-size: 16px;
     position: absolute;
-    top: 63%;
+    top: 373px;
     z-index: 1;
     display: none;
+    padding: 6%;
+    left: -3%;
 }
 
-#list_figures_explainer{
+#list_figures_explainer {
 
     font-family: Arial;
-    font-size: 18px;
-    left: 3%;
+    font-size: 16px;
     position: absolute;
-    top: 63%;
+    top: 373px;
     z-index: 1;
     display: none;
+    padding: 6%;
+    left: -3%;
+}
+
+#source_explainer {
+
+    font-family: Arial;
+    font-size: 16px;
+    position: absolute;
+    top: 373px;
+    z-index: 1;
+    display: none;
+    padding: 6%;
+    left: -3%;
 }
 
 
 #bgimage_explainer{
 
     font-family: Arial;
-    font-size: 18px;
-    left: 3%;
+    font-size: 15px;
     position: absolute;
-    top: 63%;
+    top: 373px;
     z-index: 1;
     display: none;
+    padding: 6%;
+    left: -3%;
 }
 
 #d_debug {
@@ -488,6 +524,7 @@ div.code-lines span {
 
 #content {
     background-color: white;
+    position: absolute;
 }
 
 .change_background {
