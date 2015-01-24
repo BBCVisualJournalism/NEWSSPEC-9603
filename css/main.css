@@ -158,7 +158,7 @@ div.code-lines span {
 
 #div-preview, #div-about, #div-download {
 	border: 1px solid #009999;
-    height: 88%;
+    height: 98%;
     left: 50%;
     padding: 1px;
     position: absolute;
@@ -256,14 +256,14 @@ div.code-lines span {
 	border: none;
 }
 
-#explainer {
+/*#explainer {
     font-size: 15px;
     z-index: 1;
     position: absolute;
     top:62%;
     left:3%;
     font-family: Arial;
-}
+}*/
 
 #preview-overlay {
     background-color: yellow;
@@ -278,7 +278,7 @@ div.code-lines span {
 }
 
 #html-window {
-	 height: 87%;
+	height: 87%;
     overflow-y: scroll !important;
     position: relative;
     right: -6px;
@@ -395,7 +395,7 @@ div.code-lines span {
     height:31px
 }
 
-#paragraph {
+#paragraph_annotation {
     left: 50%;
     position: absolute;
     top: 148px;
@@ -404,11 +404,11 @@ div.code-lines span {
     height:31px
 }
 
-#impact_figure {
+#impact_figure_annotation {
     display: none;
     left: 52%;
     position: absolute;
-    top: 99px;
+    top: 98px;
     z-index: 1;
 }
 
@@ -435,86 +435,85 @@ div.code-lines span {
 #h2_explainer {
 
     font-family: Arial;
-    font-size: 16px;
-    position: absolute;
-    top: 373px;
+    font-size: 15px;
+    left: 3%;
+    position: relative;
+    top: -29%;
+    width:90%;
     z-index: 1;
-    display: none;
-    padding: 6%;
-    left: -3%;
 }
 
 #h3_explainer{
 
-    font-family: Arial;
-    font-size: 16px;
-    position: absolute;
-    top: 373px;
-    z-index: 1;
     display: none;
-    padding: 6%;
-    left: -3%;
+    font-family: Arial;
+    font-size: 15px;
+    left: 3%;
+    position: relative;
+    top: -29%;
+    width: 90%;
+    z-index: 1;
 }
 
 #impact_figure_explainer{
 
-    font-family: Arial;
-    font-size: 16px;
-    position: absolute;
-    top: 373px;
-    z-index: 1;
     display: none;
-    padding: 6%;
-    left: -3%;
+    font-family: Arial;
+    font-size: 15px;
+    left: 3%;
+    position: relative;
+    top: -29%;
+    width: 90%;
+    z-index: 1;
 }
 
 #paragraph_explainer{
 
-    font-family: Arial;
-    font-size: 16px;
-    position: absolute;
-    top: 373px;
-    z-index: 1;
     display: none;
-    padding: 6%;
-    left: -3%;
+    font-family: Arial;
+    font-size: 15px;
+    left: 3%;
+    position: relative;
+    top: -29%;
+    width: 90%;
+    z-index: 1;
 }
 
 #list_figures_explainer {
 
-    font-family: Arial;
-    font-size: 16px;
-    position: absolute;
-    top: 373px;
-    z-index: 1;
     display: none;
-    padding: 6%;
-    left: -3%;
+    font-family: Arial;
+    font-size: 15px;
+    left: 3%;
+    position: relative;
+    width: 90%;
+    top: -29%;
+    z-index: 1;
 }
 
 #source_explainer {
 
-    font-family: Arial;
-    font-size: 16px;
-    position: absolute;
-    top: 373px;
-    z-index: 1;
     display: none;
-    padding: 6%;
-    left: -3%;
+    font-family: Arial;
+    font-size: 15px;
+    left: 3%;
+    position: relative;
+    top: -29%;
+    width: 90%;
+    z-index: 1;
 }
 
 
 #bgimage_explainer{
 
+    display: none;
     font-family: Arial;
     font-size: 15px;
-    position: absolute;
-    top: 373px;
+    left: 3%;
+    position: relative;
+    width: 90%;
+    top: -39%;
     z-index: 1;
-    display: none;
-    padding: 6%;
-    left: -3%;
 }
 
 #d_debug {
@@ -529,4 +528,39 @@ div.code-lines span {
 
 .change_background {
     background-color: red;
+}
+
+/*MEDIA QUERIES */
+@media (min-width: 1260px) and (max-width: 1395px) {
+
+    #div-preview, #div-about, #div-download {
+        height: 107%;
+    }
+
+    #source_annotation {
+        top: 411px;
+    }
+
+    #impact_figure_annotation {
+        top: 103px;
+    }
+
+    #preview-overlay {
+
+        height: 48%;
+        width: 97%;
+    }
+
+    #d_clip_button {
+
+        left: 79%;
+    }
+
+
+}
+
+@media (min-width: 1px) and (max-width: 1259px) {
+        /*put message for mobile devices here*/
+
+
 }

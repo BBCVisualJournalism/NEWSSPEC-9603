@@ -554,8 +554,8 @@ function debounce(callback, context, ms) {
 
 $(document).on('ready', function(){
     $("#h3_annotation").hide();
-    $("#impact_figure").hide();
-    $("#paragraph").hide();
+    $("#impact_figure_annotation").hide();
+    $("#paragraph_annotation").hide();
     //$("#list_figures_annotation").hide;
 
     var code = $("#iframe-preview").contents().find("h2");
@@ -596,7 +596,7 @@ alert("This tool will help you build a data pic. You have to use HTML and CSS co
     explainerArray = [
    $("#h2_explainer"),
    $("#h3_explainer"),
-   $("#impact_figure_annotation_explainer"),
+   $("#impact_figure_explainer"),
    $("#paragraph_explainer"),
    $("#list_figures_explainer"),
    $("#source_explainer"),
@@ -640,7 +640,11 @@ alert("This tool will help you build a data pic. You have to use HTML and CSS co
                 annotationArray[i-3].hide();
                 explainerArray[i-3].hide();
                 }
-            if ($("#iframe-preview").contents().find(annotationArray[i - 3])) {
+            if ($("#iframe-preview").contents().find(annotationArray[i - 4])) {
+                annotationArray[i-3].hide();
+                explainerArray[i-3].hide();
+                }
+            if ($("#iframe-preview").contents().find(annotationArray[i - 5])) {
                 annotationArray[i-3].hide();
                 explainerArray[i-3].hide();
                 }
